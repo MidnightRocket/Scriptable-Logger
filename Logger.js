@@ -196,6 +196,13 @@ class Logger {
 	#oldestDayToKeep;
 
 	constructor(name = Script.name(), writeTypes = ["log", "warn", "error"], daysToKeep = 7) {
+		
+		if (name.length == 0) {
+			throw new Error("name cannot be nothing. Pass undefined to use default name.");
+		} else if (name.includes("/") || name.includes(".")) {
+			throw new Error("name must not contain '/' or '.'");
+		}
+		
 		this.#writeTypes = this.writeTypes.concat(writeTypes);
 		this.#daysToKeep = daysToKeep;
 		this.#name = name;
