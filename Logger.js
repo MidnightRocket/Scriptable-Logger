@@ -195,7 +195,7 @@ class Logger {
 	#millisecondsToKeep;
 	#oldestDayToKeep;
 
-	constructor(name = Script.name(), writeTypes = ["warn", "error"], daysToKeep = 7) {
+	constructor(name = Script.name(), writeTypes = ["log", "warn", "error"], daysToKeep = 7) {
 		this.#writeTypes = this.writeTypes.concat(writeTypes);
 		this.#daysToKeep = daysToKeep;
 		this.#name = name;
